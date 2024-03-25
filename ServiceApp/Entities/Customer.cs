@@ -3,5 +3,6 @@
 public class Customer : EntityBase
 {
     public string Name { get; set; }
-    public override string ToString() => $"Id: {Id} -> Name: {Name}";
+    public string LastName { get; set; }
+    public override string ToString() => $"Id: {Id} -> Name: {Name}, LastName: {LastName}";
 }

@@ -3,14 +3,16 @@ using ServiceApp.Entities;
 using ServiceApp.Repositories;
 
 var customerRepository = new SqlRepository<Customer>(new ServiceAppDbContext());
+var deviceRepository = new SqlRepository<Device>(new ServiceAppDbContext());
 AddCustomer(customerRepository);
-AddDevice(customerRepository);
+AddDevice(deviceRepository);
 WriteAllToConsole(customerRepository);
+WriteAllToConsole(deviceRepository);
 static void AddCustomer(IRepository<Customer> customerRepository)
 {
-    customerRepository.Add(new Customer { Name = "Amelia" });
-    customerRepository.Add(new Customer { Name = "Agnieszka" });
-    customerRepository.Add(new Customer { Name = "Alina" });
+    customerRepository.Add(new Customer { Name = "Amelia", LastName = "Batek"});
+    customerRepository.Add(new Customer { Name = "Agnieszka" , LastName= "Kowalska"});
+    customerRepository.Add(new Customer { Name = "Alina", LastName = "Nowak"});
     customerRepository.Save();
 }
 

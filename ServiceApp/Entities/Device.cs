@@ -1,7 +1,8 @@
 ﻿namespace ServiceApp.Entities;
 
-public class Device : Customer
+public class Device : EntityBase
 {
+    public string Name { get; set; }
     public string SerialNumber { get; set; }
     public int ManufactureDate { get; set; }
     public string Manufacturer { get; set; }
