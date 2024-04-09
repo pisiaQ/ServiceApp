@@ -1,5 +1,5 @@
-﻿using ServiceApp.Entities;
-using ServiceApp.Repositories;
+﻿using ServiceApp.Data.Entities;
+using ServiceApp.Data.Repositories;
 using System;
 
 class ServcieApp
@@ -10,12 +10,11 @@ class ServcieApp
 
     static void Main(string[] args)
     {
-        
+        var customerRepository = new FileRepository<Customer>();
+        var deviceRepository = new FileRepository<Device>();
+
         NoCustomersDataEvent += HandleNoCustomersDataEvent;
         NoDevicesDataEvent += HandleNoDevicesDataEvent;
-
-        var customerRepository = new CustomerRepositoryInFile<Customer>();
-        var deviceRepository = new DeviceRepositoryInFile<Device>();
 
         Console.WriteLine("\tWelcome to SERVICE APP");
         Console.WriteLine("This program is the service database");
@@ -58,6 +57,8 @@ class ServcieApp
                     break;
                 case "6":
                     RemoveDevice(deviceRepository);
+                    break;
+                case "q":
                     break;
                 default:
                     Console.WriteLine("Invalid input. Please try again.");
@@ -140,7 +141,7 @@ class ServcieApp
         deviceRepository.Save();
     }
 
-    static void WriteAllToConsole(IReadRepository<IEntity> repository, NoDataEventHandler noDataEvent)
+    static void WriteAllToConsole<T>(IRepository<T> repository, NoDataEventHandler noDataEvent) where T : class, IEntity, new () 
     {
         var items = repository.GetAll();
         if (items == null || !items.Any())
@@ -151,9 +152,10 @@ class ServcieApp
 
         foreach (var item in items)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(item.ToString());
         }
     }
+
 
     static void AddCustomer(IRepository<Customer> customerRepository)
     {

@@ -1,4 +1,6 @@
-﻿namespace ServiceApp.Entities;
+﻿using ServiceApp.Repositories;
+
+namespace ServiceApp.Data.Entities;
 
 public abstract class EntityBase : IEntity
 {

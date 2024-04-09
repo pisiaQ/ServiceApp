@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using ServiceApp.Data.Entities;
+using System.Text.Json;
 
 namespace ServiceApp.Entities.Extensions;
 

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ServiceApp.Entities;
+using ServiceApp.Data.Entities;
 
 namespace ServiceApp.Data;
 

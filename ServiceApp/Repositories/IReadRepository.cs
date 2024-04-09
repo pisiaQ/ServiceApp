@@ -1,6 +1,7 @@
-﻿using ServiceApp.Entities;
+﻿using ServiceApp.Data.Entities;
+using ServiceApp.Entities;
 
-namespace ServiceApp.Repositories;
+namespace ServiceApp.Data.Repositories;
 
 public interface IReadRepository<out T> where T : class, IEntity
 {

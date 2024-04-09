@@ -1,4 +1,4 @@
-﻿namespace ServiceApp.Entities;
+﻿namespace ServiceApp.Data.Entities;
 
 public class Device : EntityBase
 {

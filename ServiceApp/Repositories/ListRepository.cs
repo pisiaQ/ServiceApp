@@ -1,9 +1,9 @@
-﻿using ServiceApp.Entities;
+﻿using ServiceApp.Data.Entities;
 
-namespace ServiceApp.Repositories
+
+namespace ServiceApp.Data.Repositories;
+
+public class ListRepository<T> where T : class, IEntity, new()
 {
-    public class ListRepository<T> where T : class, IEntity, new()
-    {
 
-    }
 }
